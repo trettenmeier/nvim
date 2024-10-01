@@ -170,6 +170,7 @@ require('lazy').setup({
     -- leader lt window with table of contents
     -- move between section boundaries with [[, [], ][, ]]
     -- :help vimtex
+    -- setup skim-pdf-reader: "custom" nvim --headless -c "VimtexInverseSearch %line '%file'"
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
