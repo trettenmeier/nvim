@@ -153,6 +153,24 @@ require('lazy').setup({
       },
     },
   },
+  {
+    'lervag/vimtex',
+    lazy = false, -- we don't want to lazy load VimTeX
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = 'skim'
+      vim.g.vimtex_view_skim_sync = 1
+      vim.g.vimtex_view_skim_activate = 1
+    end,
+    -- leader ll for start/stop compiling
+    -- leader lk to stop compiling process
+    -- leader lc to clear auxiliary files
+    -- leader lv forward search
+    -- leader le closes quickfix menu
+    -- leader lt window with table of contents
+    -- move between section boundaries with [[, [], ][, ]]
+    -- :help vimtex
+  },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
