@@ -161,6 +161,16 @@ require('lazy').setup({
       vim.g.vimtex_view_method = 'skim'
       vim.g.vimtex_view_skim_sync = 1
       vim.g.vimtex_view_skim_activate = 1
+      -- Enable conceal mode for LaTeX symbols
+      vim.g.tex_conceal = 'abdmg' -- Conceals accents, bold, delimiters, math, and Greek letters
+      vim.o.conceallevel = 2 -- Set conceal level to show symbols
+
+      -- Optionally set the conceal characters for some symbols (customize as needed)
+      vim.cmd [[
+        syntax match texMathZone "\\alpha" conceal cchar=α
+        syntax match texMathZone "\\beta" conceal cchar=β
+        syntax match texMathZone "\\pi" conceal cchar=π
+      ]]
     end,
     -- leader ll for start/stop compiling
     -- leader lk to stop compiling process
@@ -804,11 +814,13 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ignore_install = { 'latex' },
+      ensure_installed = { 'python', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,
+        disable = { 'latex' },
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
