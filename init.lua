@@ -161,6 +161,8 @@ require('lazy').setup({
       vim.g.vimtex_view_method = 'skim'
       vim.g.vimtex_view_skim_sync = 1
       vim.g.vimtex_view_skim_activate = 0
+      vim.g.vimtex_quickfix_autoclose_after_keystroke = 1 -- Close quickfix after keystroke
+
       -- Enable conceal mode for LaTeX symbols
       vim.g.tex_conceal = 'abdmg' -- Conceals accents, bold, delimiters, math, and Greek letters
       vim.o.conceallevel = 2 -- Set conceal level to show symbols
